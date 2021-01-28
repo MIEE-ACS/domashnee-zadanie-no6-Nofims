@@ -1,0 +1,31 @@
+﻿<Window x:Class="Number_6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Number_6"
+        mc:Ignorable="d"
+        Title="Рыбаков УТС-21 " Height="450" Width="800">
+    <Grid Background="#FFF7F7F7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="505*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbPets" Margin="62,45,10,10" BorderBrush="Black" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSort1" Content="Сортировать" HorizontalAlignment="Left" Margin="18,75,0,0" VerticalAlignment="Top" Width="100" Height="25" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnSearch_Click" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbHeight" Content="Высота:" HorizontalAlignment="Left" Margin="97.449,100,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="tbHeight" HorizontalAlignment="Left" Height="30" Margin="97.449,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" VerticalContentAlignment="Center" Visibility="Hidden" Text="4,1" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="btnDelete" Content="Удалить" HorizontalAlignment="Left" Margin="92.449,75,0,0" VerticalAlignment="Top" Width="95" Height="25" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnDelete_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="btnFind" Content="Найти" HorizontalAlignment="Left" Margin="137.449,290,0,0" VerticalAlignment="Top" Width="50" Height="23" Click="btnFind_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Отобразить птиц которые старше пяти лет" HorizontalAlignment="Left" Margin="0,179,0,0" VerticalAlignment="Top" Width="265" Height="28" Grid.ColumnSpan="3"/>
+        <Label VerticalContentAlignment="Center" Content="Животные:" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="490" Height="35" HorizontalContentAlignment="Center" FontSize="16" FontWeight="Bold" Grid.Column="3"/>
+        <Label Content="Сортировать по виду:" HorizontalAlignment="Left" Margin="13,27,0,0" VerticalAlignment="Top" Width="135" Height="24" Grid.ColumnSpan="2"/>
+        <Button Content="Оставить" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="66" Click="btnSort_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnBack" Content="Вернуть" HorizontalAlignment="Left" Margin="56.449,293,0,0" VerticalAlignment="Top" Width="66" Click="btnBack_Click" Grid.Column="1"/>
+        <Label Content="Дополнительные функции:" HorizontalAlignment="Left" Margin="13,130,0,0" VerticalAlignment="Top" Width="227" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="3"/>
+    </Grid>
+
+
+</Window>
