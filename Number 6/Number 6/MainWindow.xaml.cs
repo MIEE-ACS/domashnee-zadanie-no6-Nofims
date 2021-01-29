@@ -17,7 +17,7 @@ namespace Number_6
 {
     class pets
     {
-        //public int counter = 1;
+       public int counter = 1;
 
         /// <summary>
         /// Логика взаимодействия для MainWindow.xaml
@@ -27,7 +27,7 @@ namespace Number_6
         //public virtual string food { get; set; }
        // public virtual string habitat { get; set; }
         virtual public int age { get; set; }
-        public int counter = 1;
+        
         virtual public int Counter
         {
             get
@@ -545,16 +545,16 @@ namespace Number_6
         List<pets> pet = new List<pets>()
         {
              new fish() {age = 3 },
-            new fish() { age = 2},
-             new fish() { age = 3},
+            new fish() { age = 2 , counter = 2},
+             new fish() { age = 3, counter = 3},
 
-            new reptile()  { age = 15},
-            new reptile()  { age = 7},
-            new reptile()  { age = 2},
+            new reptile()  { age = 15, counter = 4},
+            new reptile()  { age = 7, counter = 5},
+            new reptile()  { age = 2, counter = 6},
 
-            new bird() { age = 6},
-            new bird() { age = 4},
-          new bird() { age = 20},
+            new bird() { age = 6, counter = 7},
+            new bird() { age = 4, counter = 8},
+          new bird() { age = 20, counter = 9},
 
           
         };
@@ -562,7 +562,66 @@ namespace Number_6
         public MainWindow()
             {
                 InitializeComponent();
+                updateListBox(pets);
+        }
+        void updateListBox(List<pets> pety)
+        {
+            lbPets.Items.Clear();
+            foreach (var body in bodies)
+            {
+                lbPets.Items.Add(body);
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            pets[] petsDeleted = new pets[lbPets.SelectedItems.Count];
+            lbPets.SelectedItems.CopyTo(petsDeleted, 0);
+
+            foreach (var pets in petsDeleted)
+            {
+                lbPets.Items.Remove(pets);
+                pet.Remove(pets);
+            }
+
+            count = 1;
+            foreach (var pets in pet)
+            {
+                pet.counter = count;
+                count++;
+            }
+            updateListBox(pets);
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            updateListBox(pets);
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSort_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedPets = cbPets.Text;
+            var selectedPety = pets.Where(x => x.Type == selectedPets);
+
+            if (selectedPety.Count() == 0)
+            {
+                MessageBox.Show("Заданных фигур не найдено");
+                return;
+            }
+
+            lbPets.Items.Clear();
+            foreach (var body in selectedPety)
+            {
+                lbPets.Items.Add(pets);
+            }
+
+        }
+
     }
+}
 
