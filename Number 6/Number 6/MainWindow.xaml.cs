@@ -27,24 +27,30 @@ namespace Number_6
         //public virtual string food { get; set; }
        // public virtual string habitat { get; set; }
         virtual public int age { get; set; }
-        
-        virtual public int Counter
+
+
+        public virtual string type
         {
-            get
-            {
-                return counter;
-            }
+            get;
+            set;
         }
 
-                
+
         class mammal : pets
         {
-            
-            
-           
+
+            public int counter = 1;
+            virtual public int Counter
+            {
+                get
+                {
+                    return counter;
+                }
+            }
+
             class cat : mammal
             { 
-
+                
                 double catage;
                 public string live
                 {
@@ -95,7 +101,7 @@ namespace Number_6
                     }
                 }
 
-                public string type
+                public override string type
                 {
                     get
                     {
@@ -155,7 +161,7 @@ namespace Number_6
             }
 
         }
-            public string type
+            public override string type
             {
                 get
                 {
@@ -221,7 +227,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -281,7 +287,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -344,7 +350,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -403,7 +409,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -467,7 +473,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -526,7 +532,7 @@ namespace Number_6
             }
 
         }
-        public string type
+        public override string type
         {
             get
             {
@@ -539,10 +545,10 @@ namespace Number_6
 }
         public partial class MainWindow : Window
     {
-        
-        
 
-        List<pets> pet = new List<pets>()
+        public int count = 10;
+
+        List<pets> pety = new List<pets>()
         {
              new fish() {age = 3 },
             new fish() { age = 2 , counter = 2},
@@ -562,14 +568,14 @@ namespace Number_6
         public MainWindow()
             {
                 InitializeComponent();
-                updateListBox(pets);
+                updateListBox(pety);
         }
         void updateListBox(List<pets> pety)
         {
             lbPets.Items.Clear();
-            foreach (var body in bodies)
+            foreach (var pets in pety)
             {
-                lbPets.Items.Add(body);
+                lbPets.Items.Add(pety);
             }
         }
 
@@ -581,21 +587,21 @@ namespace Number_6
             foreach (var pets in petsDeleted)
             {
                 lbPets.Items.Remove(pets);
-                pet.Remove(pets);
+                pety.Remove(pets);
             }
 
             count = 1;
-            foreach (var pets in pet)
+            foreach (var pets in pety)
             {
-                pet.counter = count;
+                pets.counter = count;
                 count++;
             }
-            updateListBox(pets);
+            updateListBox(pety);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            updateListBox(pets);
+            updateListBox(pety);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -606,16 +612,16 @@ namespace Number_6
         private void btnSort_Click(object sender, RoutedEventArgs e)
         {
             string selectedPets = cbPets.Text;
-            var selectedPety = pets.Where(x => x.Type == selectedPets);
+            var selectedPety = pety.Where(x => x.type == selectedPets);
 
             if (selectedPety.Count() == 0)
             {
-                MessageBox.Show("Заданных фигур не найдено");
+                MessageBox.Show("Заданных питомцев не обнаружили");
                 return;
             }
 
             lbPets.Items.Clear();
-            foreach (var body in selectedPety)
+            foreach (var pets in selectedPety)
             {
                 lbPets.Items.Add(pets);
             }
