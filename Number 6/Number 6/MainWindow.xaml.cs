@@ -550,18 +550,7 @@ namespace Number_6
 
         List<pets> pety = new List<pets>()
         {
-             new fish() {age = 3 },
-            new fish() { age = 2 , counter = 2},
-             new fish() { age = 3, counter = 3},
-
-            new reptile()  { age = 15, counter = 4},
-            new reptile()  { age = 7, counter = 5},
-            new reptile()  { age = 2, counter = 6},
-
-            new bird() { age = 6, counter = 7},
-            new bird() { age = 4, counter = 8},
-          new bird() { age = 20, counter = 9},
-
+           
           
         };
 
@@ -628,6 +617,15 @@ namespace Number_6
 
         }
 
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CbPets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
 
